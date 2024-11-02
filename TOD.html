@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      :root {
+        --purple-dark: #635985;
+        --purple-mid: #443c68;
+        --purple-light: #393053;
+        --purple-darker: #18122b;
+      }
+
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        overflow-x: hidden;
+        background-color: var(--purple-darker);
+      }
+
+      .section {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #fff;
+        flex-direction: column;
+        position: relative;
+      }
+
+      .section1 {
+        background-color: var(--purple-dark);
+        text-align: center;
+        overflow: hidden;
+        max-height: 100vh;
+      }
+
+      /* Animasi teks header muncul dari atas */
+      .header h1 {
+        font-size: 6em;
+        font-weight: bold;
+        color: #fff;
+        opacity: 0;
+        transform: translateY(-40px);
+        animation: fadeInText 2s ease-in-out forwards;
+        margin-top: -30px;
+      }
+
+      @keyframes fadeInText {
+        0% {
+          opacity: 0;
+          transform: translateY(-40px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Decorative Circles */
+      .circle {
+        position: absolute;
+        border-radius: 50%;
+        background-color: var(--purple-light);
+        opacity: 0.3;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .circle1 {
+        width: 100px;
+        height: 100px;
+        top: 20%;
+        left: 10%;
+      }
+
+      .circle2 {
+        width: 150px;
+        height: 150px;
+        top: 70%;
+        right: 15%;
+      }
+
+      .circle3 {
+        width: 80px;
+        height: 80px;
+        top: 40%;
+        right: 40%;
+      }
+
+      /* Floating Animation */
+      @keyframes float {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px);
+        }
+        100% {
+          transform: translateY(0);
+        }
+      }
+
+      /* Animated Stars */
+      .star {
+        position: absolute;
+        width: 3px;
+        height: 3px;
+        background-color: #fff;
+        border-radius: 50%;
+        animation: twinkle 2s infinite ease-in-out alternate;
+      }
+
+      .star1 {
+        top: 15%;
+        left: 25%;
+        animation-delay: 0s;
+      }
+      .star2 {
+        top: 30%;
+        left: 50%;
+        animation-delay: 0.5s;
+      }
+      .star3 {
+        top: 65%;
+        left: 75%;
+        animation-delay: 1s;
+      }
+      .star4 {
+        top: 50%;
+        left: 10%;
+        animation-delay: 1.5s;
+      }
+      .star5 {
+        top: 80%;
+        left: 30%;
+        animation-delay: 2s;
+      }
+
+      @keyframes twinkle {
+        0% {
+          opacity: 0.3;
+          transform: scale(1);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1.2);
+        }
+      }
+
+      /* Animated Lines */
+      .line {
+        position: absolute;
+        height: 3px;
+        background-color: #fff;
+        opacity: 0.3;
+      }
+
+      .line1 {
+        width: 60%;
+        top: 10%;
+        left: 0;
+        animation: lineSlide 6s linear infinite;
+      }
+
+      .line2 {
+        width: 80%;
+        bottom: 10%;
+        right: 0;
+        animation: lineSlide 6s linear infinite reverse;
+      }
+
+      @keyframes lineSlide {
+        0% {
+          transform: translateX(0);
+        }
+        50% {
+          transform: translateX(-20px);
+        }
+        100% {
+          transform: translateX(0);
+        }
+      }
+
+      .button {
+        padding: 10px 20px;
+        background-color: var(--purple-mid);
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        margin-top: 0px;
+        box-shadow: 0 0 10px var(--purple-light);
+        animation: fadeInUp 2s ease-in-out;
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(-40px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .button:hover {
+        background-color: var(--purple-light);
+        box-shadow: 0 0 15px var(--purple-light);
+      }
+
+      @keyframes glow {
+        0% {
+          box-shadow: 0 0 10px var(--purple-light);
+        }
+        100% {
+          box-shadow: 0 0 20px var(--purple-light);
+        }
+      }
+
+      .section2 {
+        background-color: var(--purple-mid);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 20px;
+        overflow: hidden;
+        min-height: 400px;
+        position: relative;
+      }
+
+      .wheel-title {
+        font-size: 2.5em; /* Ukuran font */
+        font-weight: bold; /* Ketebalan font */
+        position: relative;
+        color: #fff; /* Warna font */
+        text-align: center; /* Rata tengah */
+        margin-top: -60px; /* Ubah nilai ini sesuai kebutuhan */
+        margin-bottom: 25px; /* Jarak bawah judul */
+        text-shadow: 2px 2px 5px var(--purple-mid); /* Efek bayangan */
+      }
+
+      .wheel {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        width: 400px;
+        height: 400px;
+        margin-bottom: 20px;
+        border-radius: 50%;
+        background-color: var(--purple-light);
+      }
+
+      .center-circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 60px;
+        background-color: #fff;
+        color: var(--purple-darker);
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+      }
+
+      .triangle {
+        width: 0;
+        height: -20px;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-top: 40px solid red;
+        position: absolute;
+        top: 10%;
+        left: 50%;
+        transform: translate(-50%, -100%);
+        z-index: 10;
+      }
+
+      .textarea {
+        background-color: rgba(20, 20, 20, 0.2);
+        caret-color: #fff;
+        resize: none;
+        color: #fff;
+        margin-top: 15px;
+      }
+
+      .inputArea {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center;
+        margin-top: -5px;
+        max-height: 60px;
+        max-width: 300px;
+      }
+
+      .start-btn {
+        padding: 10px 20px;
+        background-color: var(--purple-light);
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .start-btn:hover {
+        background-color: var(--purple-darker);
+      }
+
+      .truth-dare-buttons {
+        display: flex;
+        flex-direction: row;
+        margin-top: 30px;
+        gap: 20px;
+        justify-content: center; /* Center the buttons */
+      }
+
+      .truth-btn,
+      .dare-btn {
+        padding: 10px 20px;
+        background-color: var(--purple-mid);
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        cursor: pointer;
+        margin-top: -5px;
+        box-shadow: 0 0 15px 5px var(--purple-light),
+          0 0 25px 15px var(--purple-light); /* Efek glow lebih tajam */
+        animation: glow 2s infinite alternate;
+      }
+
+      .truth-btn {
+        background-color: var(--purple-dark);
+      }
+
+      .dare-btn {
+        background-color: var(--purple-dark);
+      }
+
+      .truth-btn:hover {
+        background-color: var(--purple-darker);
+      }
+
+      .dare-btn:hover {
+        background-color: var(--purple-darker);
+      }
+
+      .result {
+        font-size: 18px;
+        font-weight: bold;
+        color: #fff;
+        text-align: center;
+        margin-top: 20px; /* Add margin to space it out */
+        height: 40px; /* Tinggi tetap agar tidak menyebabkan pergeseran */
+        position: absolute; /* Posisi absolute agar tidak mengganggu layout lainnya */
+        top: 85%; /* Sesuaikan posisi hasil di layar */
+        width: 100%;
+      }
+
+      /* Particle Animation */
+      .particle {
+        position: absolute;
+        background-color: #fff;
+        border-radius: 50%;
+        opacity: 0.2;
+        animation: floatParticles 6s ease-in-out infinite;
+      }
+
+      @keyframes floatParticles {
+        0% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-20px) translateX(10px);
+          opacity: 0.5;
+        }
+        100% {
+          transform: translateY(0);
+          opacity: 0.2;
+        }
+      }
+
+      /* Glow Effect */
+      .glow {
+        color: #fff;
+        text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+          0 0 1px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.5),
+          0 0 1px rgba(255, 255, 255, 0.5);
+      }
+
+      @keyframes glow {
+        0% {
+          box-shadow: 0 0 20px 8px var(--purple-light),
+            0 0 40px 15px var(--purple-light); /* Lebih terang pada posisi awal */
+        }
+        100% {
+          box-shadow: 0 0 10px 4px var(--purple-light),
+            0 0 20px 10px var(--purple-light); /* Mengurangi intensitas pada akhir */
+        }
+      }
+
+      @media (max-width: 1440px) {
+        .wheel-title {
+          margin-top: 30px;
+          font-size: 24px;
+          line-height: 1.2;
+        }
+        .result {
+          font-size: 16px; /* Ukuran font lebih kecil di layar kecil */
+          top: 8px;
+          position: relative; /* Ubah ke relative agar mengalir dengan layout */
+        }
+      }
+
+      @media (max-width: 768px) {
+        .wheel-title {
+          margin-top: 30px;
+          font-size: 24px;
+          line-height: 1.2;
+        }
+        .result {
+          font-size: 16px; /* Ukuran font lebih kecil di layar kecil */
+          top: 10px;
+          position: relative; /* Ubah ke relative agar mengalir dengan layout */
+        }
+
+        .truth-dare-buttons {
+          flex-direction: column; /* Tombol dalam kolom di layar kecil */
+          align-items: center; /* Memusatkan tombol */
+          flex-direction: row;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .header h1 {
+          font-size: 6em;
+        }
+
+        .wheel-title {
+          margin-top: -30px;
+          font-size: 24px;
+          line-height: 1.2;
+        }
+
+        .section {
+          height: auto; /* Membuat section lebih fleksibel */
+          padding: 65px; /* Tambah padding untuk ruang yang lebih baik */
+        }
+
+        .section1 {
+          align-items: center; /* Pusatkan konten */
+          padding: 65px; /* Padding untuk tampilan lebih baik */
+        }
+
+        .section2 {
+          align-items: center; /* Pusatkan konten */
+          padding: 65px; /* Padding untuk tampilan lebih baik */
+        }
+
+        .wheel {
+          width: 113%; /* Ukuran roda lebih kecil di layar kecil */
+          height: 100%; /* Biarkan tinggi otomatis */
+          justify-content: center;
+        }
+
+        .center-circle {
+          width: 80px; /* Ukuran lingkaran tengah lebih kecil */
+          height: 80px; /* Sesuaikan dengan lingkaran */
+        }
+
+        .textarea {
+          width: 100%; /* Lebar textarea penuh */
+          margin-top: 15px; /* Ruang di atas textarea */
+        }
+
+        .truth-dare-buttons {
+          flex-direction: column; /* Tombol dalam kolom di layar kecil */
+          align-items: center; /* Memusatkan tombol */
+          flex-direction: row;
+        }
+
+        .truth-btn,
+        .dare-btn {
+          width: 100%; /* Tombol lebar penuh */
+          margin: 0px; /* Ruang antar tombol */
+        }
+
+        .result {
+          font-size: 16px; /* Ukuran font lebih kecil di layar kecil */
+          top: 15px;
+          margin-top: 30px; /* Ruang yang lebih kecil */
+          position: relative; /* Ubah ke relative agar mengalir dengan layout */
+        }
+      
+
+      .inputArea {
+        display: flex;
+        justify-content: space-between; /* Distribute space evenly */
+        align-items: center; /* Center items vertically */
+        width: 100%; /* Make it full width */
+      }
+
+      .result {
+        position: relative; /* Change to static to keep it in the normal flow */
+        margin-top: 5px; /* Remove top margin */
+        margin-left: 20px; /* Add left margin for spacing */
+      }
+
+      .wheel {
+        margin-left: 50px;
+        margin-right: 50px;
+      }
+
+      .center-circle {
+        margin-left: 0;
+      }
+    }
+    </style>
+  </head>
+  <body>
+    <div class="section section1">
+      <div class="header glow">
+        <h1>Let's Play Truth or Dare!</h1>
+        <button class="button" onclick="scrollToSection2()">Start Game</button>
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
+        <div class="circle circle3"></div>
+        <div class="line line1"></div>
+        <div class="line line2"></div>
+        <div class="star star1"></div>
+        <div class="star star2"></div>
+        <div class="star star3"></div>
+        <div class="star star4"></div>
+        <div class="star star5"></div>
+      </div>
+    </div>
+
+    <div class="section section2" id="wheelSection">
+      <h2 class="wheel-title glow">Spin the Wheel and Choose Truth or Dare!</h2>
+      <div class="wheel">
+        <canvas id="canvas" width="400" height="400"></canvas>
+        <div class="center-circle" onclick="spin()">SPIN</div>
+        <div class="triangle"></div>
+      </div>
+      <div class="inputArea">
+        <textarea
+          rows="8"
+          cols="30"
+          id="nameInput"
+          placeholder="Enter name..."
+          class="textarea"
+        ></textarea>
+      </div>
+      <div class="truth-dare-buttons glow">
+        <button class="truth-btn" onclick="showRandomTruth()">Truth</button>
+        <button class="dare-btn" onclick="showRandomDare()">Dare</button>
+      </div>
+      <div class="result" id="result"></div>
+      <div
+        class="particle"
+        style="width: 5px; height: 5px; top: 20%; left: 15%"
+      ></div>
+      <div
+        class="particle"
+        style="width: 8px; height: 8px; top: 60%; left: 75%"
+      ></div>
+      <div
+        class="particle"
+        style="width: 6px; height: 6px; top: 40%; left: 30%"
+      ></div>
+      <div
+        class="particle"
+        style="width: 4px; height: 4px; top: 70%; left: 10%"
+      ></div>
+      <div
+        class="particle"
+        style="width: 7px; height: 7px; top: 15%; left: 60%"
+      ></div>
+    </div>
+
+    <script>
+      function scrollToSection2() {
+        document
+          .getElementById("wheelSection")
+          .scrollIntoView({ behavior: "smooth" });
+      }
+
+      function randomColor() {
+        let r = Math.floor(Math.random() * 255);
+        let g = Math.floor(Math.random() * 255);
+        let b = Math.floor(Math.random() * 255);
+        return { r, g, b };
+      }
+
+      function toRad(deg) {
+        return deg * (Math.PI / 180);
+      }
+
+      function randomRange(min, max) {
+        return Math.floor(Math.random() * (max - min + 1)) + min;
+      }
+
+      function easeOutSine(x) {
+        return Math.sin((x * Math.PI) / 2);
+      }
+
+      function getPercent(input, min, max) {
+        return ((input - min) * 100) / (max - min) / 100;
+      }
+
+      const canvas = document.getElementById("canvas");
+      const ctx = canvas.getContext("2d");
+      const width = canvas.width;
+      const height = canvas.height;
+
+      const centerX = width / 2;
+      const centerY = height / 2;
+      const radius = width / 2;
+
+      let items = [];
+      let currentDeg = 0;
+      let step = 360 / items.length;
+      let colors = [];
+
+      function createWheel() {
+        items = document
+          .getElementById("nameInput")
+          .value.split("\n")
+          .filter((item) => item.trim() !== "");
+        if (items.length === 0) {
+          alert("Please input names to spin the wheel!");
+          return false;
+        }
+
+        step = 360 / items.length;
+        colors = [];
+        for (let i = 0; i < items.length; i++) {
+          colors.push(randomColor());
+        }
+        draw();
+        return true;
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, width, height);
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+        ctx.fillStyle = "#333";
+        ctx.fill();
+
+        let startDeg = currentDeg;
+
+        for (let i = 0; i < items.length; i++, startDeg += step) {
+          let endDeg = startDeg + step;
+          let color = colors[i];
+          let colorStyle = `rgb(${color.r},${color.g},${color.b})`; // Memperbaiki penggunaan warna
+
+          ctx.beginPath();
+          ctx.moveTo(centerX, centerY);
+          ctx.arc(centerX, centerY, radius, toRad(startDeg), toRad(endDeg));
+          ctx.fillStyle = colorStyle;
+          ctx.fill();
+
+          ctx.save();
+          ctx.translate(centerX, centerY);
+          ctx.rotate(toRad((startDeg + endDeg) / 2));
+          ctx.textAlign = "center";
+          ctx.fillStyle =
+            (color.r + color.g + color.b) / 3 > 127 ? "#000" : "#fff";
+          ctx.font = "bold 24px serif";
+          ctx.fillText(items[i], radius / 1.5, 10);
+          ctx.restore();
+        }
+      }
+
+      let speed = 0;
+      let maxRotation = randomRange(360 * 3, 360 * 6);
+      let pause = false;
+      function animate() {
+        if (pause) {
+          return;
+        }
+        speed = easeOutSine(getPercent(currentDeg, maxRotation, 0)) * 20;
+        if (speed < 0.01) {
+          speed = 0;
+          pause = true;
+        }
+        currentDeg += speed;
+        draw();
+        window.requestAnimationFrame(animate);
+      }
+
+      function spin() {
+        if (speed != 0) {
+          return;
+        }
+        createWheel(); // Memastikan roda diperbarui sebelum berputar
+        currentDeg = 0;
+        maxRotation = randomRange(360 * 3, 360 * 6);
+        pause = false;
+        window.requestAnimationFrame(animate);
+      }
+
+      document
+        .getElementById("nameInput")
+        .addEventListener("input", createWheel);
+
+      function showRandomTruth() {
+        const truthOptions = [
+          "What’s the wildest Direct Message you’ve ever gotten?",
+          "Ever ghosted someone? What happened?",
+          "What's the cringiest thing you’ve done to impress a crush?",
+          "Who’s your secret celebrity crush that no one knows about?",
+          "What's the worst lie you've ever told to get out of plans?",
+          "If you could delete one social media post forever, which one would it be?",
+          "What’s the most embarrassing song on your playlist?",
+          "Have you ever slid into someone’s Direct Messages? How did it go?",
+          "What’s the weirdest thing you Google searched recently?",
+          "What’s the pettiest reason you ever unfollowed someone?",
+          "What’s the most awkward date you’ve been on?",
+          "Ever stalked someone online? Who was it?",
+          "If you could see into the future, what’s one thing you’d want to know?",
+          "Who’s the last person you searched on social media?",
+          "If you could swap lives with someone for a day, who would it be?",
+        ];
+        const randomTruth =
+          truthOptions[Math.floor(Math.random() * truthOptions.length)];
+        document.getElementById("result").innerText = `Truth: ${randomTruth}`; // Gunakan backticks di sini
+      }
+
+      function showRandomDare() {
+        const dareOptions = [
+          "Text your crush and tell them you dreamed about them!",
+          "Do your best celebrity impression for the next 30 seconds!",
+          "Go outside and shout, (I’m a legend!) then walk back like it’s normal!",
+          "Send the last photo in your camera roll to the group",
+          "Pretend to be the person to your right for the next three rounds!",
+          "Speak in an accent of your choice for the next 10 minutes!",
+          "Post an embarrassing childhood pic on your Instagram story!",
+          "Go live on social media and sing a line from your fave song!",
+          "Let someone go through your phone for 1 minute!",
+          "Use only emojis to text someone until they respond!",
+          "Wear your shirt backward for the next three rounds!",
+          "Share the last message you sent someone, no matter what it says!",
+          "Freestyle a short rap about anything the group suggests!",
+          "Talk like a robot until your next turn!",
+          "Type a status update that says, (Guess what? I have a big secret…) but don’t answer anyone’s comments for an hour!",
+        ];
+        const randomDare =
+          dareOptions[Math.floor(Math.random() * dareOptions.length)];
+        document.getElementById("result").innerText = `Dare: ${randomDare}`; // Gunakan backticks di sini
+      }
+    </script>
+  </body>
+</html>
