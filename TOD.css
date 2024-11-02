@@ -1,0 +1,515 @@
+:root {
+  --purple-dark: #635985;
+  --purple-mid: #443c68;
+  --purple-light: #393053;
+  --purple-darker: #18122b;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  overflow-x: hidden;
+  background-color: var(--purple-darker);
+}
+
+.section {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  flex-direction: column;
+  position: relative;
+}
+
+.section1 {
+  background-color: var(--purple-dark);
+  text-align: center;
+  overflow: hidden;
+  max-height: 100vh;
+}
+
+/* Animasi teks header muncul dari atas */
+.header h1 {
+  font-size: 6em;
+  font-weight: bold;
+  color: #fff;
+  opacity: 0;
+  transform: translateY(-40px);
+  animation: fadeInText 2s ease-in-out forwards;
+  margin-top: -30px;
+}
+
+@keyframes fadeInText {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Decorative Circles */
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--purple-light);
+  opacity: 0.3;
+  animation: float 6s ease-in-out infinite;
+}
+
+.circle1 {
+  width: 100px;
+  height: 100px;
+  top: 20%;
+  left: 10%;
+}
+
+.circle2 {
+  width: 150px;
+  height: 150px;
+  top: 70%;
+  right: 15%;
+}
+
+.circle3 {
+  width: 80px;
+  height: 80px;
+  top: 40%;
+  right: 40%;
+}
+
+/* Floating Animation */
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* Animated Stars */
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 50%;
+  animation: twinkle 2s infinite ease-in-out alternate;
+}
+
+.star1 {
+  top: 15%;
+  left: 25%;
+  animation-delay: 0s;
+}
+.star2 {
+  top: 30%;
+  left: 50%;
+  animation-delay: 0.5s;
+}
+.star3 {
+  top: 65%;
+  left: 75%;
+  animation-delay: 1s;
+}
+.star4 {
+  top: 50%;
+  left: 10%;
+  animation-delay: 1.5s;
+}
+.star5 {
+  top: 80%;
+  left: 30%;
+  animation-delay: 2s;
+}
+
+@keyframes twinkle {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* Animated Lines */
+.line {
+  position: absolute;
+  height: 3px;
+  background-color: #fff;
+  opacity: 0.3;
+}
+
+.line1 {
+  width: 60%;
+  top: 10%;
+  left: 0;
+  animation: lineSlide 6s linear infinite;
+}
+
+.line2 {
+  width: 80%;
+  bottom: 10%;
+  right: 0;
+  animation: lineSlide 6s linear infinite reverse;
+}
+
+@keyframes lineSlide {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: var(--purple-mid);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  margin-top: 0px;
+  box-shadow: 0 0 10px var(--purple-light);
+  animation: fadeInUp 2s ease-in-out;
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.button:hover {
+  background-color: var(--purple-light);
+  box-shadow: 0 0 15px var(--purple-light);
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 10px var(--purple-light);
+  }
+  100% {
+    box-shadow: 0 0 20px var(--purple-light);
+  }
+}
+
+.section2 {
+  background-color: var(--purple-mid);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  overflow: hidden;
+  min-height: 400px;
+  position: relative;
+}
+
+.wheel-title {
+  font-size: 2.5em; /* Ukuran font */
+  font-weight: bold; /* Ketebalan font */
+  position: relative;
+  color: #fff; /* Warna font */
+  text-align: center; /* Rata tengah */
+  margin-top: -60px; /* Ubah nilai ini sesuai kebutuhan */
+  margin-bottom: 25px; /* Jarak bawah judul */
+  text-shadow: 2px 2px 5px var(--purple-mid); /* Efek bayangan */
+}
+
+.wheel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  background-color: var(--purple-light);
+}
+
+.center-circle {
+  width: 100px;
+  height: 100px;
+  border-radius: 60px;
+  background-color: #fff;
+  color: var(--purple-darker);
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+.triangle {
+  width: 0;
+  height: -20px;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-top: 40px solid red;
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -100%);
+  z-index: 10;
+}
+
+.textarea {
+  background-color: rgba(20, 20, 20, 0.2);
+  caret-color: #fff;
+  resize: none;
+  color: #fff;
+  margin-top: 15px;
+}
+
+.inputArea {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -5px;
+  max-height: 60px;
+  max-width: 300px;
+}
+
+.start-btn {
+  padding: 10px 20px;
+  background-color: var(--purple-light);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.start-btn:hover {
+  background-color: var(--purple-darker);
+}
+
+.truth-dare-buttons {
+  display: flex;
+  flex-direction: row;
+  margin-top: 30px;
+  gap: 20px;
+  justify-content: center; /* Center the buttons */
+}
+
+.truth-btn,
+.dare-btn {
+  padding: 10px 20px;
+  background-color: var(--purple-mid);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  cursor: pointer;
+  margin-top: -5px;
+  box-shadow: 0 0 15px 5px var(--purple-light),
+    0 0 25px 15px var(--purple-light); /* Efek glow lebih tajam */
+  animation: glow 2s infinite alternate;
+}
+
+.truth-btn {
+  background-color: var(--purple-dark);
+}
+
+.dare-btn {
+  background-color: var(--purple-dark);
+}
+
+.truth-btn:hover {
+  background-color: var(--purple-darker);
+}
+
+.dare-btn:hover {
+  background-color: var(--purple-darker);
+}
+
+.result {
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  margin-top: 20px; /* Add margin to space it out */
+  height: 40px; /* Tinggi tetap agar tidak menyebabkan pergeseran */
+  position: absolute; /* Posisi absolute agar tidak mengganggu layout lainnya */
+  top: 85%; /* Sesuaikan posisi hasil di layar */
+  width: 100%;
+}
+
+/* Particle Animation */
+.particle {
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  opacity: 0.2;
+  animation: floatParticles 6s ease-in-out infinite;
+}
+
+@keyframes floatParticles {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px) translateX(10px);
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 0.2;
+  }
+}
+
+/* Glow Effect */
+.glow {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5),
+    0 0 1px rgba(255, 255, 255, 0.5), 0 0 30px rgba(255, 255, 255, 0.5),
+    0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 20px 8px var(--purple-light),
+      0 0 40px 15px var(--purple-light); /* Lebih terang pada posisi awal */
+  }
+  100% {
+    box-shadow: 0 0 10px 4px var(--purple-light),
+      0 0 20px 10px var(--purple-light); /* Mengurangi intensitas pada akhir */
+  }
+}
+
+@media (max-width: 1440px) {
+  .wheel-title {
+    margin-top: 30px;
+    font-size: 24px;
+    line-height: 1.2;
+  }
+  .result {
+    font-size: 16px; /* Ukuran font lebih kecil di layar kecil */
+    top: 8px;
+    position: relative; /* Ubah ke relative agar mengalir dengan layout */
+  }
+}
+
+@media (max-width: 768px) {
+  .wheel-title {
+    margin-top: 30px;
+    font-size: 24px;
+    line-height: 1.2;
+  }
+  .result {
+    font-size: 16px; /* Ukuran font lebih kecil di layar kecil */
+    top: 10px;
+    position: relative; /* Ubah ke relative agar mengalir dengan layout */
+  }
+
+  .truth-dare-buttons {
+    flex-direction: column; /* Tombol dalam kolom di layar kecil */
+    align-items: center; /* Memusatkan tombol */
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 6em;
+  }
+
+  .wheel-title {
+    margin-top: -30px;
+    font-size: 24px;
+    line-height: 1.2;
+  }
+
+  .section {
+    height: auto; /* Membuat section lebih fleksibel */
+    padding: 65px; /* Tambah padding untuk ruang yang lebih baik */
+  }
+
+  .section1 {
+    align-items: center; /* Pusatkan konten */
+    padding: 65px; /* Padding untuk tampilan lebih baik */
+  }
+
+  .section2 {
+    align-items: center; /* Pusatkan konten */
+    padding: 65px; /* Padding untuk tampilan lebih baik */
+  }
+
+  .wheel {
+    width: 113%; /* Ukuran roda lebih kecil di layar kecil */
+    height: 100%; /* Biarkan tinggi otomatis */
+    justify-content: center;
+  }
+
+  .center-circle {
+    width: 80px; /* Ukuran lingkaran tengah lebih kecil */
+    height: 80px; /* Sesuaikan dengan lingkaran */
+  }
+
+  .textarea {
+    width: 100%; /* Lebar textarea penuh */
+    margin-top: 15px; /* Ruang di atas textarea */
+  }
+
+  .truth-dare-buttons {
+    flex-direction: column; /* Tombol dalam kolom di layar kecil */
+    align-items: center; /* Memusatkan tombol */
+    flex-direction: row;
+  }
+
+  .truth-btn,
+  .dare-btn {
+    width: 100%; /* Tombol lebar penuh */
+    margin: 0px; /* Ruang antar tombol */
+  }
+
+  .result {
+    font-size: 16px; /* Ukuran font lebih kecil di layar kecil */
+    top: 15px;
+    margin-top: 30px; /* Ruang yang lebih kecil */
+    position: relative; /* Ubah ke relative agar mengalir dengan layout */
+  }
+
+  .inputArea {
+    display: flex;
+    justify-content: space-between; /* Distribute space evenly */
+    align-items: center; /* Center items vertically */
+    width: 100%; /* Make it full width */
+  }
+
+  .result {
+    position: relative; /* Change to static to keep it in the normal flow */
+    margin-top: 5px; /* Remove top margin */
+    margin-left: 20px; /* Add left margin for spacing */
+  }
+
+  .wheel {
+    margin-left: 50px;
+    margin-right: 50px;
+  }
+
+  .center-circle {
+    margin-left: 0;
+  }
+}
